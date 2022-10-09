@@ -5,7 +5,6 @@ void main(){
   // here are some data type
   // String, int, BigInt, double, num, bool
 
-
   // declaration of variable
 
   String name;
@@ -36,5 +35,34 @@ void main(){
   print(largeNumber);
   print(amount);
   print(percentage);
+
+  //-----------------------------------------//
+  // var keyword will assign the data type of if variable initialize
+  var roll = 12;
+  var subject = "math";
+
+  // var keyword will help the store the multiple data type of variable if its not initialize
+  // its types will dynamic
+
+  var section;
+
+  // here it will store String type
+  section = "A";
+  print("Section :$section");
+
+  //here it will store integer type
+  section = 101;
+  print("Room Number: $section");
+
+  // dynamic keyword will used when we do not want to add data type at initial
+  dynamic something;
+
+  // here it will store String type
+  something = "B";
+  print("Section :$something");
+
+  // here it will store integer type
+  something = 102;
+  print("Room Number: $something");
 
 }
