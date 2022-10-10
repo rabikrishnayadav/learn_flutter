@@ -47,16 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Button Widget"),
       ),
       body: Center(
-        child: ElevatedButton(
-            child: Text("click here!!"),
-            onPressed: (){
-              print('Text Button Clicked!');
-            },
-            onLongPress: (){
-              print('Text Button Long Clicked');
-            },
+        child: Container(
+          width: 100,
+          height: 100, child: Image.asset('assets/images/grafex_media_logo.png')
         ),
-        ),
+      ),
     );
   }
 }
