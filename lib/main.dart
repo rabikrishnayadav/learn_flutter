@@ -31,22 +31,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  //  Center Widget aligns its child widget to the center of the available space on the screen
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Flutter Container"),
+        title: const Text("Center Widget"),
       ),
       body: Center(
-        child: Container(
-          width: 140,
-          height: 120,
-          color: Colors.lightGreenAccent,
-          child: const Center(
-            child: Text(
-                "Hello Develops!"
-            ),
-          )
+        child: const Text(
+          "Hello world",
+          style: TextStyle(
+            color: Colors.lightGreen,
+          ),
         ),
       ),
     );
