@@ -33,26 +33,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //  Center Widget aligns its child widget to the center of the available space on the screen
 
-  // The Text widget displays a string of text with single style.
-  // The String might break across multiple lines or might all be displayed on the same line depending on the layout
+  // Button are the graphical control element that provides
+  // A user to trigger an even such as taking actions, making choices, searching things, and many more.
+  // They can be placed anywhere in our UI like dialogs, forms, cards, toolbar, etc.
+  // Types of Button
+  // 1. Text Button (Flat Button)   2. Elevated Button (Raised Button)    3. Outlined Button
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Center Widget"),
+        title: const Text("Button Widget"),
       ),
-      body: const Center(
-        child: Text(
-          "Hello User!",
-          style: TextStyle(
-            fontSize: 30,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            backgroundColor: Colors.teal,
-          ),
+      body: Center(
+        child: ElevatedButton(
+            child: Text("click here!!"),
+            onPressed: (){
+              print('Text Button Clicked!');
+            },
+            onLongPress: (){
+              print('Text Button Long Clicked');
+            },
         ),
-      ),
+        ),
     );
   }
 }
