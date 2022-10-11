@@ -50,103 +50,114 @@ class _MyHomePageState extends State<MyHomePage> {
   // Inkwell will respond when the user clicks it. Tap on it.
   // There are so many gestures like double-tap, long press, tap down etc.
 
+  // List View
+  // Listview in flutter is a widget used to display items in a linear manner.
+  // for example, list view is used in apps like zomato & swiggy to display a list of restaurants.
+  // Since it is a scrollable widget we can display multiple items on the same screen.
+  // if the scroll direction is vertical the children will be arranged one after another from top to bottom.
+  // when the scroll direction is horizontal the children will be arranged from left to right.
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Scroll View Widget"),
+        title: const Text("List View Widget"),
       ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(left:7, right: 7),
-                        height: 200,
-                        width: 200,
-                        color: Colors.orange,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left:7, right: 7),
-                        height: 200,
-                        width: 200,
-                        color: Colors.lightGreenAccent,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left:7, right: 7),
-                        height: 200,
-                        color: Colors.pink,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left:7, right: 7),
-                        height: 200,
-                        width: 200,
-                        color: Colors.orange,
-                      ),
+          child: Container(
+            width: double.maxFinite,
+            color: Colors.grey,
+          // simple list view it is static list view
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              reverse: false,
+              children: const [
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("First Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Second Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Third Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Forth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Fifth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("First Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Second Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Third Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Forth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Fifth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("First Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Second Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Third Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Forth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Fifth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("First Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Second Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Third Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Forth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Fifth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                ),
 
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top:10, bottom: 10),
-                  height: 200,
-                  width: 200,
-                  color: Colors.pink,
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top:10, bottom: 10),
-                  height: 200,
-                  color: Colors.lightGreenAccent,
-                ),
-
-                Container(
-                  margin: const EdgeInsets.only(top:10, bottom: 10),
-                  height: 200,
-                  color: Colors.purple,
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top:10, bottom: 10),
-                  height: 200,
-                  width: 200,
-                  color: Colors.redAccent,
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top:10, bottom: 10),
-                  height: 200,
-                  width: 200,
-                  color: Colors.lightGreenAccent,
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top:10, bottom: 10),
-                  height: 200,
-                  color: Colors.pink,
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top:10, bottom: 10),
-                  height: 200,
-                  width: 200,
-                  color: Colors.orange,
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top:10, bottom: 10),
-                  height: 200,
-                  color: Colors.purple,
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top:10, bottom: 10),
-                  height: 200,
-                  width: 200,
-                  color: Colors.redAccent,
-                ),
               ],
             ),
-          ),
+          )
         ),
       )
     );
