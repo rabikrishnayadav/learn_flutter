@@ -60,19 +60,28 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    var arrNames =  ["ram","laxman","bharat","satrudhan","Rabi", "krishna","yadav"];
+    var arrNames =  ["ram","laxman","bharat","satrudhan","Rabi", "krishna","yadav",
+      "ram","laxman","bharat","satrudhan","Rabi", "krishna","yadav"];
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("List View Widget"),
       ),
-      body: ListView.builder(itemBuilder: (context, index) {
-        return Text(arrNames[index], style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),);
+      body: ListView.separated(itemBuilder: (context, index) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(arrNames[index], style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w500),),
+            Text(arrNames[index], style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),),
+          ],
+        );
       },
+        separatorBuilder: (context, index){
+        return Divider(height: 50, thickness: 2,);
+        },
         itemCount: arrNames.length,
         reverse: false,
-        itemExtent: 100,
-        scrollDirection: Axis.horizontal,
+        scrollDirection: Axis.vertical,
       )
     );
   }
