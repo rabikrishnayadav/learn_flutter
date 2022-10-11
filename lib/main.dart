@@ -39,19 +39,49 @@ class _MyHomePageState extends State<MyHomePage> {
   // Types of Button
   // 1. Text Button (Flat Button)   2. Elevated Button (Raised Button)    3. Outlined Button
 
+  // Column and Row
+  // One of the most common layout patterns is t arrange widgets vertically or horizontally.
+  // You can use Row widget to arrange widgets horizontally, and a Column widget to arrange widgets vertically.
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Button Widget"),
+        title: const Text("Column and Row Widget"),
       ),
-      body: Center(
-        child: Container(
-          width: 100,
-          height: 100, child: Image.asset('assets/images/grafex_media_logo.png')
-        ),
-      ),
+      body: Column(
+        children: [
+          const Text("Three Types of button"),
+          Column(
+            children: [
+              Container(
+                height: 100,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ElevatedButton(onPressed: (){print("Elevated Button");}, child: const Text("Elevated Button")),
+                    TextButton(onPressed: (){print("Text Button");}, child: const Text("Text Button")),
+                    OutlinedButton(onPressed: (){print("Outlined Button");}, child: const Text("Outlined Button")),
+                  ],
+                ),
+              ),
+              Container(
+                width: 200,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    ElevatedButton(onPressed: (){print("Elevated Button");}, child: const Text("Raised Button")),
+                    TextButton(onPressed: (){print("Text Button");}, child: const Text("Flat Button")),
+                    OutlinedButton(onPressed: (){print("Outlined Button");}, child: const Text("Outline Button")),
+                  ],
+                ),
+              )
+            ],
+          )
+        ],
+      )
     );
   }
 }
