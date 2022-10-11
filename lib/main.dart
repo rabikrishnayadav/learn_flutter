@@ -15,15 +15,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -65,23 +63,32 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("List View Widget"),
+        title: const Text("Container Decoration"),
       ),
-      body: ListView.separated(itemBuilder: (context, index) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(arrNames[index], style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w500),),
-            Text(arrNames[index], style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),),
-          ],
-        );
-      },
-        separatorBuilder: (context, index){
-        return Divider(height: 50, thickness: 2,);
-        },
-        itemCount: arrNames.length,
-        reverse: false,
-        scrollDirection: Axis.vertical,
+      body: Container(
+        // for give full width and height
+        width: double.infinity,
+        height: double.infinity,
+        child: Center(
+          child: Container(
+            width: 200,
+            height: 200,
+            decoration: BoxDecoration(
+              color: Colors.blueGrey,
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
+              border: Border.all(
+                width: 4,
+                color: Colors.black
+              ),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 20,
+                  spreadRadius:8
+                )
+              ]
+            ),
+          ),
+        ),
       )
     );
   }
