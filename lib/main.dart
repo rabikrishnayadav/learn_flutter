@@ -43,12 +43,18 @@ class _MyHomePageState extends State<MyHomePage> {
   // One of the most common layout patterns is t arrange widgets vertically or horizontally.
   // You can use Row widget to arrange widgets horizontally, and a Column widget to arrange widgets vertically.
 
+  // Inkwell Widget
+  // Inkwell is the material widget in flutter
+  // It is used for give onTap option to other widget like button
+  // It responds to the touch action as performed by the user.
+  // Inkwell will respond when the user clicks it. Tap on it.
+  // There are so many gestures like double-tap, long press, tap down etc.
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Column and Row Widget"),
+        title: const Text("Inkwell Widget"),
       ),
       body: Column(
         children: [
@@ -70,11 +76,30 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 width: 200,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  crossAxisAlignment: CrossAxisAlignment.center ,
                   children: [
                     ElevatedButton(onPressed: (){print("Elevated Button");}, child: const Text("Raised Button")),
                     TextButton(onPressed: (){print("Text Button");}, child: const Text("Flat Button")),
                     OutlinedButton(onPressed: (){print("Outlined Button");}, child: const Text("Outline Button")),
+                    const Text("This is Inkwell Widget Example"),
+                    InkWell(
+                      onTap: (){
+                        print("Inkwell pressed");
+                      },
+                      onDoubleTap: (){
+                        print("Inkwell double pressed");
+                      },
+                      onLongPress: (){
+                        print("Inkwell long pressed");
+                      },
+                      child: Container(
+                          width: 100,
+                          height: 100,
+                          color: Colors.greenAccent,
+                          child: const Center(
+                            child: Text("Click Me!!"),
+                          )),
+                    )
                   ],
                 ),
               )
