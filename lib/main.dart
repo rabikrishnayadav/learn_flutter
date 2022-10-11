@@ -54,58 +54,100 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Inkwell Widget"),
+        title: const Text("Scroll View Widget"),
       ),
-      body: Column(
-        children: [
-          const Text("Three Types of button"),
-          Column(
-            children: [
-              Container(
-                height: 100,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ElevatedButton(onPressed: (){print("Elevated Button");}, child: const Text("Elevated Button")),
-                    TextButton(onPressed: (){print("Text Button");}, child: const Text("Text Button")),
-                    OutlinedButton(onPressed: (){print("Outlined Button");}, child: const Text("Outlined Button")),
-                  ],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(left:7, right: 7),
+                        height: 200,
+                        width: 200,
+                        color: Colors.orange,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left:7, right: 7),
+                        height: 200,
+                        width: 200,
+                        color: Colors.lightGreenAccent,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left:7, right: 7),
+                        height: 200,
+                        color: Colors.pink,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left:7, right: 7),
+                        height: 200,
+                        width: 200,
+                        color: Colors.orange,
+                      ),
+
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                width: 200,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center ,
-                  children: [
-                    ElevatedButton(onPressed: (){print("Elevated Button");}, child: const Text("Raised Button")),
-                    TextButton(onPressed: (){print("Text Button");}, child: const Text("Flat Button")),
-                    OutlinedButton(onPressed: (){print("Outlined Button");}, child: const Text("Outline Button")),
-                    const Text("This is Inkwell Widget Example"),
-                    InkWell(
-                      onTap: (){
-                        print("Inkwell pressed");
-                      },
-                      onDoubleTap: (){
-                        print("Inkwell double pressed");
-                      },
-                      onLongPress: (){
-                        print("Inkwell long pressed");
-                      },
-                      child: Container(
-                          width: 100,
-                          height: 100,
-                          color: Colors.greenAccent,
-                          child: const Center(
-                            child: Text("Click Me!!"),
-                          )),
-                    )
-                  ],
+                Container(
+                  margin: const EdgeInsets.only(top:10, bottom: 10),
+                  height: 200,
+                  width: 200,
+                  color: Colors.pink,
                 ),
-              )
-            ],
-          )
-        ],
+                Container(
+                  margin: const EdgeInsets.only(top:10, bottom: 10),
+                  height: 200,
+                  color: Colors.lightGreenAccent,
+                ),
+
+                Container(
+                  margin: const EdgeInsets.only(top:10, bottom: 10),
+                  height: 200,
+                  color: Colors.purple,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top:10, bottom: 10),
+                  height: 200,
+                  width: 200,
+                  color: Colors.redAccent,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top:10, bottom: 10),
+                  height: 200,
+                  width: 200,
+                  color: Colors.lightGreenAccent,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top:10, bottom: 10),
+                  height: 200,
+                  color: Colors.pink,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top:10, bottom: 10),
+                  height: 200,
+                  width: 200,
+                  color: Colors.orange,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top:10, bottom: 10),
+                  height: 200,
+                  color: Colors.purple,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top:10, bottom: 10),
+                  height: 200,
+                  width: 200,
+                  color: Colors.redAccent,
+                ),
+              ],
+            ),
+          ),
+        ),
       )
     );
   }
