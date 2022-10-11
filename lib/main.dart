@@ -59,106 +59,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    var arrNames =  ["ram","laxman","bharat","satrudhan","Rabi", "krishna","yadav"];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("List View Widget"),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: double.maxFinite,
-            color: Colors.grey,
-          // simple list view it is static list view
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              reverse: false,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("First Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Second Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Third Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Forth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Fifth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("First Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Second Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Third Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Forth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Fifth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("First Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Second Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Third Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Forth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Fifth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("First Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Second Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Third Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Forth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Fifth Text", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-                ),
-
-              ],
-            ),
-          )
-        ),
+      body: ListView.builder(itemBuilder: (context, index) {
+        return Text(arrNames[index], style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),);
+      },
+        itemCount: arrNames.length,
+        reverse: false,
+        itemExtent: 100,
+        scrollDirection: Axis.horizontal,
       )
     );
   }
