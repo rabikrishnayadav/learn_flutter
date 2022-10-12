@@ -63,32 +63,34 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Container Decoration"),
+        title: const Text("Expanded Widgets "),
       ),
-      body: Container(
-        // for give full width and height
-        width: double.infinity,
-        height: double.infinity,
-        child: Center(
-          child: Container(
-            width: 200,
-            height: 200,
-            decoration: BoxDecoration(
-              color: Colors.blueGrey,
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
-              border: Border.all(
-                width: 4,
-                color: Colors.black
+      body: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.deepPurple,
+                ),
               ),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 20,
-                  spreadRadius:8
-                )
-              ]
-            ),
+              Expanded(
+                flex: 2,
+                child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.lightGreen,
+              )),
+              Expanded(child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.cyanAccent,
+              )),
+            ],
           ),
-        ),
+        ],
       )
     );
   }
