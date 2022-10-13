@@ -55,6 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
   // if the scroll direction is vertical the children will be arranged one after another from top to bottom.
   // when the scroll direction is horizontal the children will be arranged from left to right.
 
+  // List Tile have 3 main component
+  // 1. Leading   2. Title & Subtitle   3.Trailing
+
   @override
   Widget build(BuildContext context) {
 
@@ -63,18 +66,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Padding Widgets "),
+        title: const Text("ListTile Widgets "),
       ),
-      body: Container(
-        color: Colors.blueGrey,
-        margin: EdgeInsets.only(top: 20, left: 15),
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: Text(
-            "Hello User",
-            style: TextStyle(fontSize: 30),
-          ),
-        ),
+      body: ListView.separated(itemBuilder: (context, index)
+          {
+            return ListTile(
+              leading: Text("$index"),
+              title: Text(arrNames[index]),
+              subtitle: Text(arrNames[index]),
+              trailing: Icon(Icons.add),
+            );
+          },
+          itemCount: arrNames.length,
+          separatorBuilder: (context, index){
+            return Divider(height: 20, thickness: 3,
+            );
+          },
       )
     );
   }
