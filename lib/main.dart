@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Theme and Style", style: mTextStyle50()),
+        title: Text("Card Widget", style: mTextStyle50()),
       ),
       body: ListView.separated(itemBuilder: (context, index)
           {
@@ -87,7 +87,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: Colors.white,
                 radius: 30,
               ),
-              title: Text(arrNames[index], style: Theme.of(context).textTheme.headline1!.copyWith(color: Colors.orange)),
+              title: Card(
+                shadowColor: Colors.green,
+                elevation: 10,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(arrNames[index], style: Theme.of(context).textTheme.headline1!.copyWith(color: Colors.orange)),
+                  )
+              ),
               subtitle: Text(arrNames[index], style: mTextStyle20()),
               trailing: Icon(Icons.add),
             );
