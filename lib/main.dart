@@ -63,34 +63,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Expanded Widgets "),
+        title: const Text("Padding Widgets "),
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.deepPurple,
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.lightGreen,
-              )),
-              Expanded(child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.cyanAccent,
-              )),
-            ],
+      body: Container(
+        color: Colors.blueGrey,
+        margin: EdgeInsets.only(top: 20, left: 15),
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Text(
+            "Hello User",
+            style: TextStyle(fontSize: 30),
           ),
-        ],
+        ),
       )
     );
   }
