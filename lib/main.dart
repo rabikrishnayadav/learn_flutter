@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/ui_helper/text_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: const TextTheme(
+          headline1: TextStyle(fontFamily: "Branding", fontWeight: FontWeight.w500, fontSize: 40),
+          headline2: TextStyle(fontFamily: "Raj", fontWeight: FontWeight.w300, fontSize: 20),
+        )
       ),
       home: const MyHomePage(),
     );
@@ -72,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("CircleAvatar Widgets "),
+        title: Text("Theme and Style", style: mTextStyle50()),
       ),
       body: ListView.separated(itemBuilder: (context, index)
           {
@@ -82,8 +87,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: Colors.white,
                 radius: 30,
               ),
-              title: Text(arrNames[index], style: TextStyle(fontFamily: "Branding", fontWeight: FontWeight.w500, fontSize: 30),),
-              subtitle: Text(arrNames[index], style: TextStyle(fontFamily: "Raj", fontWeight: FontWeight.w500, fontSize: 25),),
+              title: Text(arrNames[index], style: Theme.of(context).textTheme.headline1!.copyWith(color: Colors.orange)),
+              subtitle: Text(arrNames[index], style: mTextStyle20()),
               trailing: Icon(Icons.add),
             );
           },
