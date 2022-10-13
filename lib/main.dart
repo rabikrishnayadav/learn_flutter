@@ -82,8 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: Colors.white,
                 radius: 30,
               ),
-              title: Text(arrNames[index]),
-              subtitle: Text(arrNames[index]),
+              title: Text(arrNames[index], style: TextStyle(fontFamily: "Branding", fontWeight: FontWeight.w500, fontSize: 30),),
+              subtitle: Text(arrNames[index], style: TextStyle(fontFamily: "Raj", fontWeight: FontWeight.w500, fontSize: 25),),
               trailing: Icon(Icons.add),
             );
           },
