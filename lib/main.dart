@@ -57,6 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // List Tile have 3 main component
   // 1. Leading   2. Title & Subtitle   3.Trailing
+  
+  // Circle Avtar
+  // It is simply a circle in which we can add background color, background image, or just some text.
+  // It usually represents a user with his image or with his initials.
+  // Although we can make a similar widget from the group up
+  // This widget comes in handy in the fast development of an application.
 
   @override
   Widget build(BuildContext context) {
@@ -66,12 +72,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ListTile Widgets "),
+        title: const Text("CircleAvatar Widgets "),
       ),
       body: ListView.separated(itemBuilder: (context, index)
           {
             return ListTile(
-              leading: Text("$index"),
+              leading: CircleAvatar(
+                backgroundImage: AssetImage('assets/images/grafex_media_logo.png'),
+                backgroundColor: Colors.white,
+                radius: 30,
+              ),
               title: Text(arrNames[index]),
               subtitle: Text(arrNames[index]),
               trailing: Icon(Icons.add),
