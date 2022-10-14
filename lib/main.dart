@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Learn Flutter',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
         textTheme: const TextTheme(
           headline1: TextStyle(fontFamily: "Branding", fontWeight: FontWeight.w500, fontSize: 40),
           headline2: TextStyle(fontFamily: "Raj", fontWeight: FontWeight.w300, fontSize: 20),
@@ -69,41 +69,81 @@ class _MyHomePageState extends State<MyHomePage> {
   // Although we can make a similar widget from the group up
   // This widget comes in handy in the fast development of an application.
 
+  // Text Input Widget
+  // A TextField is an input element which holds the alphanumeric, such as name,password, address, etc.
+  // Enables the user to enter text information using a programmable code
+
   @override
   Widget build(BuildContext context) {
 
     var arrNames =  ["ram","laxman","bharat","satrudhan","Rabi", "krishna","yadav",
       "ram","laxman","bharat","satrudhan","Rabi", "krishna","yadav"];
 
+    var email = TextEditingController();
+    var password = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Card Widget", style: mTextStyle50()),
+        title: Text("TextField Widget", style: mTextStyle50()),
       ),
-      body: ListView.separated(itemBuilder: (context, index)
-          {
-            return ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/grafex_media_logo.png'),
-                backgroundColor: Colors.white,
-                radius: 30,
+      body: Center(
+        child: Container(
+          width: 300,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: Colors.green,
+                    width: 3,
+                  ),),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(
+                      color: Colors.blue,
+                      width: 3
+                    )
+                  ),
+                  disabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(
+                      color: Colors.grey,
+                      width: 3
+                    )
+                  ),
+                  suffixText: "Email",
+                  prefixIcon: Icon(Icons.email, color: Colors.orange,),
+                ),
+                controller: email,
+                keyboardType: TextInputType.emailAddress,
               ),
-              title: Card(
-                shadowColor: Colors.green,
-                elevation: 10,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(arrNames[index], style: Theme.of(context).textTheme.headline1!.copyWith(color: Colors.orange)),
-                  )
+              Container(height: 15,),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15)
+                  ),
+                  prefixIcon: Icon(Icons.lock, color: Colors.orange,),
+                  suffixIcon: IconButton(onPressed: (){}, icon: Icon(Icons.remove_red_eye, color: Colors.orange,)),
+                  hintText: "Enter Password"
+                ),
+                controller: password,
+                obscureText: true,
+                obscuringCharacter: "*",
               ),
-              subtitle: Text(arrNames[index], style: mTextStyle20()),
-              trailing: Icon(Icons.add),
-            );
-          },
-          itemCount: arrNames.length,
-          separatorBuilder: (context, index){
-            return Divider(height: 20, thickness: 3,
-            );
-          },
+              ElevatedButton(onPressed: (){
+                String uEmail = email.text.toString();
+                String uPassword = password.text.toString();
+                print("email: $uEmail");
+                print("passowrd: $uPassword");
+              },
+              child: Text("Login"))
+            ],
+          ),
+        ),
       )
     );
   }
