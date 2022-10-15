@@ -104,32 +104,43 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("RichText Widget", style: mTextStyle50()),
+        title: Text("Icon Widget", style: mTextStyle50()),
       ),
-      body: Center(
-        child: Container(
-          child: RichText(
-              text: TextSpan(
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 20,
-                ),
-                children: <TextSpan>[
-                  TextSpan(text: 'Hello '),
-                  TextSpan(text: 'World!', style: TextStyle(
-                    fontSize: 34,
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold
-                  )),
-                  TextSpan(text: 'welcome to ',),
-                  TextSpan(text: 'Flutter', style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40,
-                  ))
-                ]
-              )
+      body: Column(
+        children: [
+          Container(
+            child: RichText(
+                text: TextSpan(
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 20,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(text: 'Hello '),
+                      TextSpan(text: 'World!', style: TextStyle(
+                          fontSize: 34,
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold
+                      )),
+                      TextSpan(text: 'welcome to ',),
+                      TextSpan(text: 'Flutter', style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                      ))
+                    ]
+                )
+            ),
           ),
-        ),
+          Container(
+            width: 100,
+            height: 100,
+            child: Icon(
+              Icons.play_circle,
+              size: 100,
+              color: Colors.orange,
+            ),
+          )
+        ],
       )
     );
   }
