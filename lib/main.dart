@@ -74,6 +74,10 @@ class _MyHomePageState extends State<MyHomePage> {
   // A TextField is an input element which holds the alphanumeric, such as name,password, address, etc.
   // Enables the user to enter text information using a programmable code
 
+  callBack(){
+    print("Clicked!!");
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -99,15 +103,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("GridView Widget", style: mTextStyle50()),
       ),
-      body: GridView.builder(
-          itemBuilder: (context, index){
-            return Container(color: arrColors[index],);
-          },
-        itemCount: arrColors.length,
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 100,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10)
-      )
+      body: ElevatedButton(
+          child: Text("Click here"),
+          onPressed: callBack,
+      ),
     );
   }
 }
