@@ -105,52 +105,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("FontAwesome Icon Library", style: mTextStyle50()),
+        title: Text("Positioned Widget", style: mTextStyle50()),
       ),
-      body: Column(
-        children: [
-          Container(
-            child: RichText(
-                text: TextSpan(
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 20,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(text: 'Hello '),
-                      TextSpan(text: 'World!', style: TextStyle(
-                          fontSize: 34,
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold
-                      )),
-                      TextSpan(text: 'welcome to ',),
-                      TextSpan(text: 'Flutter', style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                      ))
-                    ]
-                )
-            ),
-          ),
-          Container(
-            width: 100,
-            height: 100,
-            child: Icon(
-              Icons.play_circle,
-              size: 100,
-              color: Colors.orange,
-            ),
-          ),
-          Container(
-            width: 100,
-            height: 100,
-            child: FaIcon(
-              FontAwesomeIcons.googlePay,
-              size: 100,
-              color: Colors.blue,
-            ),
-          )
-        ],
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.blueGrey,
+        child: Stack(
+          children: [
+            Positioned(
+              bottom: 10,
+              right: 40,
+              child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.white,
+                child: Center(child: Text("position", style: TextStyle(fontSize: 20),)),
+              ),
+            )
+          ],
+        ),
       )
     );
   }
