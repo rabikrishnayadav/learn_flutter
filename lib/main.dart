@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         textTheme: const TextTheme(
           headline1: TextStyle(fontFamily: "Branding", fontWeight: FontWeight.w500, fontSize: 40),
-          headline2: TextStyle(fontFamily: "Raj", fontWeight: FontWeight.w300, fontSize: 20),
+          headline2: TextStyle(fontFamily: "Baloo", fontWeight: FontWeight.w300, fontSize: 20),
         )
       ),
       home: const MyHomePage(),
@@ -155,6 +155,30 @@ class _MyHomePageState extends State<MyHomePage> {
               Text("Date and Time: $time", style: TextStyle(fontSize: 15),),
               Text("Date: ${DateFormat('yMMMMd').format(time)}", style: TextStyle(fontSize: 15),),
               Text("Time: ${DateFormat('jms').format(time)}", style: TextStyle(fontSize: 15),),
+              Container(
+                height: 20,
+              ),
+              Text("Date and Time Picker"),
+              ElevatedButton(onPressed: () async {
+                DateTime? datePicker = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2022),
+                    lastDate: DateTime(2023));
+                if(datePicker != null){
+                  print("date selected: ${datePicker.year}");
+                }
+              }, child: Text("Show Date Picker")),
+              ElevatedButton(onPressed: () async {
+                DateTime? timePicker = (await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                  initialEntryMode: TimePickerEntryMode.dial
+                )) as DateTime?;
+                if(timePicker != null){
+                  print("time selected: ${timePicker.hour} : ${timePicker.minute}");
+                }
+              }, child: Text("Show Time Picker")),
             ],
           ),
         ),
