@@ -99,20 +99,14 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("GridView Widget", style: mTextStyle50()),
       ),
-      body: GridView.extent(maxCrossAxisExtent: 150,
+      body: GridView.builder(
+          itemBuilder: (context, index){
+            return Container(color: arrColors[index],);
+          },
+        itemCount: arrColors.length,
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 100,
         crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        children: [
-          Container(color: arrColors[0],),
-          Container(color: arrColors[1],),
-          Container(color: arrColors[2],),
-          Container(color: arrColors[3],),
-          Container(color: arrColors[4],),
-          Container(color: arrColors[5],),
-          Container(color: arrColors[6],),
-          Container(color: arrColors[7],),
-
-        ],
+        mainAxisSpacing: 10)
       )
     );
   }
