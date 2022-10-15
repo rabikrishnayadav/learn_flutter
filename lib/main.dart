@@ -74,6 +74,11 @@ class _MyHomePageState extends State<MyHomePage> {
   // A TextField is an input element which holds the alphanumeric, such as name,password, address, etc.
   // Enables the user to enter text information using a programmable code
 
+  // Stack Widget
+  // A widget that positions its children relative to the edge of its box.
+  // This class is useful if we want to overlap several children in a simple way,
+  // for example having some text and an image, overlaid with a gradient and a button attached to the bottom.
+
   callBack(){
     print("Clicked!!");
   }
@@ -91,15 +96,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("GridView Widget", style: mTextStyle50()),
+        title: Text("Stack Widget", style: mTextStyle50()),
       ),
       body: Container(
-        child: Column(
+        width: 300,
+        height: 300,
+        child: Stack(
           children: [
-            CatItems(),
-            Contact(),
-            SubCatItems(),
-            BottomMenu()
+            Container(
+              width: 200,
+              height: 200,
+              color: Colors.blueGrey,
+            ),
+            Positioned(
+              top: 20,
+              left: 60,
+              child: Container(
+                width: 160,
+                height: 160,
+                color: Colors.grey,
+              ),
+            )
           ],
         ),
       )
