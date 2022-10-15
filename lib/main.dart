@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/ui_helper/text_theme.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -152,8 +153,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 });;
               }, child: Text("Current Date Time")),
               Text("Date and Time: $time", style: TextStyle(fontSize: 15),),
-              Text("Date: ${time.year}/${time.month}/${time.day}", style: TextStyle(fontSize: 15),),
-              Text("Time: ${time.hour}:${time.minute}:${time.second}", style: TextStyle(fontSize: 15),),
+              Text("Date: ${DateFormat('yMMMMd').format(time)}", style: TextStyle(fontSize: 15),),
+              Text("Time: ${DateFormat('jms').format(time)}", style: TextStyle(fontSize: 15),),
             ],
           ),
         ),
