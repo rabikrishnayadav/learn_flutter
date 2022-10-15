@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/screens/intro_screen.dart';
 import 'package:learn_flutter/ui_helper/text_theme.dart';
 import 'package:intl/intl.dart';
 import 'package:learn_flutter/widgets/rounded_btn.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
             headline2: TextStyle(fontFamily: "Baloo", fontWeight: FontWeight.w300, fontSize: 20),
           )
       ),
-      home: const MyHomePage(),
+      home: IntroScreen(),
     );
   }
 }
