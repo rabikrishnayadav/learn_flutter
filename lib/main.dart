@@ -85,103 +85,34 @@ class _MyHomePageState extends State<MyHomePage> {
 
     var time = DateTime.now();
 
+    var arrColors = [Colors.amber,
+    Colors.orange,
+      Colors.grey,
+      Colors.blue,
+      Colors.pink,
+      Colors.green,
+      Colors.purpleAccent,
+      Colors.brown
+    ];
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Date and Time Widget", style: mTextStyle50()),
+        title: Text("GridView Widget", style: mTextStyle50()),
       ),
-      body: Center(
-        child: Container(
-          width: 300,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextField(
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
-                    color: Colors.green,
-                    width: 3,
-                  ),),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
-                      color: Colors.blue,
-                      width: 3
-                    )
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
-                      color: Colors.grey,
-                      width: 3
-                    )
-                  ),
-                  suffixText: "Email",
-                  prefixIcon: Icon(Icons.email, color: Colors.orange,),
-                ),
-                controller: email,
-                keyboardType: TextInputType.emailAddress,
-              ),
-              Container(height: 15,),
-              TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15)
-                  ),
-                  prefixIcon: Icon(Icons.lock, color: Colors.orange,),
-                  suffixIcon: IconButton(onPressed: (){}, icon: Icon(Icons.remove_red_eye, color: Colors.orange,)),
-                  hintText: "Enter Password"
-                ),
-                controller: password,
-                obscureText: true,
-                obscuringCharacter: "*",
-              ),
-              ElevatedButton(onPressed: (){
-                String uEmail = email.text.toString();
-                String uPassword = password.text.toString();
-                print("email: $uEmail");
-                print("passowrd: $uPassword");
-              },
-              child: Text("Login")),
-              Container(
-                height: 20,
-              ),
-              ElevatedButton(onPressed: (){
-                setState(() {
+      body: GridView.extent(maxCrossAxisExtent: 150,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        children: [
+          Container(color: arrColors[0],),
+          Container(color: arrColors[1],),
+          Container(color: arrColors[2],),
+          Container(color: arrColors[3],),
+          Container(color: arrColors[4],),
+          Container(color: arrColors[5],),
+          Container(color: arrColors[6],),
+          Container(color: arrColors[7],),
 
-                });;
-              }, child: Text("Current Date Time")),
-              Text("Date and Time: $time", style: TextStyle(fontSize: 15),),
-              Text("Date: ${DateFormat('yMMMMd').format(time)}", style: TextStyle(fontSize: 15),),
-              Text("Time: ${DateFormat('jms').format(time)}", style: TextStyle(fontSize: 15),),
-              Container(
-                height: 20,
-              ),
-              Text("Date and Time Picker"),
-              ElevatedButton(onPressed: () async {
-                DateTime? datePicker = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(2022),
-                    lastDate: DateTime(2023));
-                if(datePicker != null){
-                  print("date selected: ${datePicker.year}");
-                }
-              }, child: Text("Show Date Picker")),
-              ElevatedButton(onPressed: () async {
-                DateTime? timePicker = (await showTimePicker(
-                    context: context,
-                    initialTime: TimeOfDay.now(),
-                  initialEntryMode: TimePickerEntryMode.dial
-                )) as DateTime?;
-                if(timePicker != null){
-                  print("time selected: ${timePicker.hour} : ${timePicker.minute}");
-                }
-              }, child: Text("Show Time Picker")),
-            ],
-          ),
-        ),
+        ],
       )
     );
   }
