@@ -82,9 +82,11 @@ class _MyHomePageState extends State<MyHomePage> {
     var email = TextEditingController();
     var password = TextEditingController();
 
+    var time = DateTime.now();
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("TextField Widget", style: mTextStyle50()),
+        title: Text("Date and Time Widget", style: mTextStyle50()),
       ),
       body: Center(
         child: Container(
@@ -140,7 +142,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 print("email: $uEmail");
                 print("passowrd: $uPassword");
               },
-              child: Text("Login"))
+              child: Text("Login")),
+              Container(
+                height: 20,
+              ),
+              ElevatedButton(onPressed: (){
+                setState(() {
+
+                });;
+              }, child: Text("Current Date Time")),
+              Text("Date and Time: $time", style: TextStyle(fontSize: 15),),
+              Text("Date: ${time.year}/${time.month}/${time.day}", style: TextStyle(fontSize: 15),),
+              Text("Time: ${time.hour}:${time.minute}:${time.second}", style: TextStyle(fontSize: 15),),
             ],
           ),
         ),
