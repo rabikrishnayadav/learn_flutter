@@ -49,12 +49,16 @@ class _MyHomePageState extends State<MyHomePage> {
   var result = "";
   var time = DateTime.now();
 
+  RangeValues values = RangeValues(0, 100);
+
   @override
   Widget build(BuildContext context) {
 
+    RangeLabels labels = RangeLabels(values.start.toString(), values.end.toString());
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("ConstrainedBox Widget", style: mTextStyle50()),
+        title: Text("RangeSlider Widget", style: mTextStyle50()),
       ),
       body: Container(
         color: Colors.green.shade200,
@@ -119,7 +123,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   child: Text('Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! ',
                     style: TextStyle(fontSize: 22, backgroundColor: Colors.grey),),
-                )
+                ),
+                RangeSlider(
+                    values: values,
+                    labels: labels,
+                    divisions: 5,
+                    min: 0,
+                    max: 100,
+                    activeColor: Colors.blue,
+                    inactiveColor: Colors.blue.shade100,
+                    onChanged: (newValue){
+                      values = newValue;
+                      print("${newValue.start}, ${newValue.end}");
+                      setState(() {});
+                    }
+                ),
+
               ],
             ),
           ),

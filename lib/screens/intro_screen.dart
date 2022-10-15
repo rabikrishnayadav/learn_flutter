@@ -6,7 +6,7 @@ import 'package:learn_flutter/screens/profile_screen.dart';
 class IntroScreen extends StatelessWidget{
 
   var name = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +33,7 @@ class IntroScreen extends StatelessWidget{
             ElevatedButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(
                   builder: (context) => ProfileScreen(name.text.toString())));
-            }, child: Text("Next Screen"))
+            }, child: Text("Next Screen")),
           ],
         ),
       ),
