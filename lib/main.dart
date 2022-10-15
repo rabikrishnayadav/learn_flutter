@@ -80,6 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
   // This class is useful if we want to overlap several children in a simple way,
   // for example having some text and an image, overlaid with a gradient and a button attached to the bottom.
 
+  // SizedBox Widget
+  // its use for give width and height
+  // its come with 3 function
+  // 1. extended (for full height & width)
+  // 2. shrink (for minimum height & width)
+  // 3. square (for same height and width)
+
   callBack(){
     print("Clicked!!");
   }
@@ -97,46 +104,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Custom Widget", style: mTextStyle50()),
+        title: Text("SizedBox Widget", style: mTextStyle50()),
       ),
-      body: Center(
-        child: Container(
-          height: double.infinity,
-          child: Wrap(
-            direction: Axis.vertical,
-            spacing: 10,
-            runSpacing: 10,
-            alignment: WrapAlignment.spaceAround,
-            children: [
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.blue,
+      body: Column(
+        children: [
+          SizedBox(
+            width: 150,
+              height: 50,
+              child: ElevatedButton(onPressed: (){}, child: Text("Sized Box"),
               ),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.green,
-              ),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.yellow,
-              ),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.red,
-              ),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.brown,
-              ),
-
-            ],
           ),
-        ),
+          SizedBox.square(dimension: 100,
+              child: ElevatedButton(onPressed: (){}, child: Text("Sized Box"),),
+          ),
+        ],
       )
     );
   }
