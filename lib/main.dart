@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Counter App", style: mTextStyle50()),
+        title: Text("ConstrainedBox Widget", style: mTextStyle50()),
       ),
       body: Container(
         color: Colors.green.shade200,
@@ -108,7 +108,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Padding(padding: EdgeInsets.all(20),
-                  child: Text(result, style: TextStyle(fontSize: 25),),)
+                  child: Text(result, style: TextStyle(fontSize: 25),),),
+                SizedBox(height: 50,),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: 300,
+                    minWidth: 100,
+                  ),
+                  child: Text('Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! ',
+                    style: TextStyle(fontSize: 22, backgroundColor: Colors.grey),),
+                )
               ],
             ),
           ),
