@@ -100,32 +100,42 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Custom Widget", style: mTextStyle50()),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 200,
-              child: RoundedButton(
-                btnName: "login",
-                callback: (){
-                  print("Logged in!!");
-                },
-                textStyle: mTextStyle40(),
+        child: Container(
+          height: double.infinity,
+          child: Wrap(
+            direction: Axis.vertical,
+            spacing: 10,
+            runSpacing: 10,
+            alignment: WrapAlignment.spaceAround,
+            children: [
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.blue,
               ),
-            ),
-            Container(height: 20,),
-            Container(
-              width: 200,
-              child: RoundedButton(
-                btnName: "login",
-                icon: Icon(Icons.lock),
-                callback: (){
-                  print("Logged in!!");
-                },
-                textStyle: mTextStyle40(),
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.green,
               ),
-            ),
-          ],
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.yellow,
+              ),
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.red,
+              ),
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.brown,
+              ),
+
+            ],
+          ),
         ),
       )
     );
