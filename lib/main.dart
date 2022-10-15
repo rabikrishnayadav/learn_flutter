@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/ui_helper/text_theme.dart';
 import 'package:intl/intl.dart';
+import 'package:learn_flutter/widgets/rounded_btn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -96,27 +97,34 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Stack Widget", style: mTextStyle50()),
+        title: Text("Custom Widget", style: mTextStyle50()),
       ),
-      body: Container(
-        width: 300,
-        height: 300,
-        child: Stack(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               width: 200,
-              height: 200,
-              color: Colors.blueGrey,
-            ),
-            Positioned(
-              top: 20,
-              left: 60,
-              child: Container(
-                width: 160,
-                height: 160,
-                color: Colors.grey,
+              child: RoundedButton(
+                btnName: "login",
+                callback: (){
+                  print("Logged in!!");
+                },
+                textStyle: mTextStyle40(),
               ),
-            )
+            ),
+            Container(height: 20,),
+            Container(
+              width: 200,
+              child: RoundedButton(
+                btnName: "login",
+                icon: Icon(Icons.lock),
+                callback: (){
+                  print("Logged in!!");
+                },
+                textStyle: mTextStyle40(),
+              ),
+            ),
           ],
         ),
       )
