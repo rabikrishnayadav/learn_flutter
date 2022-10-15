@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_flutter/ui_helper/text_theme.dart';
 import 'package:intl/intl.dart';
 import 'package:learn_flutter/widgets/rounded_btn.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -104,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Icon Widget", style: mTextStyle50()),
+        title: Text("FontAwesome Icon Library", style: mTextStyle50()),
       ),
       body: Column(
         children: [
@@ -138,6 +139,15 @@ class _MyHomePageState extends State<MyHomePage> {
               Icons.play_circle,
               size: 100,
               color: Colors.orange,
+            ),
+          ),
+          Container(
+            width: 100,
+            height: 100,
+            child: FaIcon(
+              FontAwesomeIcons.googlePay,
+              size: 100,
+              color: Colors.blue,
             ),
           )
         ],
