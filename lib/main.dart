@@ -104,20 +104,32 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("SizedBox Widget", style: mTextStyle50()),
+        title: Text("RichText Widget", style: mTextStyle50()),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            width: 150,
-              height: 50,
-              child: ElevatedButton(onPressed: (){}, child: Text("Sized Box"),
-              ),
+      body: Center(
+        child: Container(
+          child: RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20,
+                ),
+                children: <TextSpan>[
+                  TextSpan(text: 'Hello '),
+                  TextSpan(text: 'World!', style: TextStyle(
+                    fontSize: 34,
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold
+                  )),
+                  TextSpan(text: 'welcome to ',),
+                  TextSpan(text: 'Flutter', style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                  ))
+                ]
+              )
           ),
-          SizedBox.square(dimension: 100,
-              child: ElevatedButton(onPressed: (){}, child: Text("Sized Box"),),
-          ),
-        ],
+        ),
       )
     );
   }
