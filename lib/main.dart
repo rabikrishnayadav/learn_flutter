@@ -14,14 +14,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Learn Flutter',
+      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.orange,
-        textTheme: const TextTheme(
-          headline1: TextStyle(fontFamily: "Branding", fontWeight: FontWeight.w500, fontSize: 40),
-          headline2: TextStyle(fontFamily: "Baloo", fontWeight: FontWeight.w300, fontSize: 20),
-        )
+          primarySwatch: Colors.orange,
+          textTheme: const TextTheme(
+            headline1: TextStyle(fontFamily: "Branding", fontWeight: FontWeight.w500, fontSize: 40),
+            headline2: TextStyle(fontFamily: "Baloo", fontWeight: FontWeight.w300, fontSize: 20),
+          )
       ),
       home: const MyHomePage(),
     );
@@ -37,93 +37,81 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  //  Center Widget aligns its child widget to the center of the available space on the screen
+  var arrNames =  ["ram","laxman","bharat","satrudhan","Rabi", "krishna","yadav",
+    "ram","laxman","bharat","satrudhan","Rabi", "krishna","yadav"];
 
-  // Button are the graphical control element that provides
-  // A user to trigger an even such as taking actions, making choices, searching things, and many more.
-  // They can be placed anywhere in our UI like dialogs, forms, cards, toolbar, etc.
-  // Types of Button
-  // 1. Text Button (Flat Button)   2. Elevated Button (Raised Button)    3. Outlined Button
-
-  // Column and Row
-  // One of the most common layout patterns is t arrange widgets vertically or horizontally.
-  // You can use Row widget to arrange widgets horizontally, and a Column widget to arrange widgets vertically.
-
-  // Inkwell Widget
-  // Inkwell is the material widget in flutter
-  // It is used for give onTap option to other widget like button
-  // It responds to the touch action as performed by the user.
-  // Inkwell will respond when the user clicks it. Tap on it.
-  // There are so many gestures like double-tap, long press, tap down etc.
-
-  // List View
-  // Listview in flutter is a widget used to display items in a linear manner.
-  // for example, list view is used in apps like zomato & swiggy to display a list of restaurants.
-  // Since it is a scrollable widget we can display multiple items on the same screen.
-  // if the scroll direction is vertical the children will be arranged one after another from top to bottom.
-  // when the scroll direction is horizontal the children will be arranged from left to right.
-
-  // List Tile have 3 main component
-  // 1. Leading   2. Title & Subtitle   3.Trailing
-  
-  // Circle Avtar
-  // It is simply a circle in which we can add background color, background image, or just some text.
-  // It usually represents a user with his image or with his initials.
-  // Although we can make a similar widget from the group up
-  // This widget comes in handy in the fast development of an application.
-
-  // Text Input Widget
-  // A TextField is an input element which holds the alphanumeric, such as name,password, address, etc.
-  // Enables the user to enter text information using a programmable code
-
-  // Stack Widget
-  // A widget that positions its children relative to the edge of its box.
-  // This class is useful if we want to overlap several children in a simple way,
-  // for example having some text and an image, overlaid with a gradient and a button attached to the bottom.
-
-  // SizedBox Widget
-  // its use for give width and height
-  // its come with 3 function
-  // 1. extended (for full height & width)
-  // 2. shrink (for minimum height & width)
-  // 3. square (for same height and width)
-
-  callBack(){
-    print("Clicked!!");
-  }
+  var email = TextEditingController();
+  var password = TextEditingController();
+  var no1Controller = TextEditingController();
+  var no2Controller = TextEditingController();
+  var result = "";
+  var time = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
 
-    var arrNames =  ["ram","laxman","bharat","satrudhan","Rabi", "krishna","yadav",
-      "ram","laxman","bharat","satrudhan","Rabi", "krishna","yadav"];
-
-    var email = TextEditingController();
-    var password = TextEditingController();
-
-    var time = DateTime.now();
-
     return Scaffold(
       appBar: AppBar(
-        title: Text("Positioned Widget", style: mTextStyle50()),
+        title: Text("Counter App", style: mTextStyle50()),
       ),
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.blueGrey,
-        child: Stack(
-          children: [
-            Positioned(
-              bottom: 10,
-              right: 40,
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.white,
-                child: Center(child: Text("position", style: TextStyle(fontSize: 20),)),
-              ),
-            )
-          ],
+        color: Colors.green.shade200,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  keyboardType: TextInputType.number,
+                  controller: no1Controller,
+                ),
+                TextField(
+                  keyboardType: TextInputType.number,
+                  controller: no2Controller,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(onPressed: (){
+                        setState(() {
+                          var no1 = int.parse(no1Controller.text.toString());
+                          var no2 = int.parse(no2Controller.text.toString());
+                          var sum = no1 + no2;
+                          result = "The sum of $no1 and $no2 is: $sum";
+                        });
+                      }, child: Text('Add')),
+                      ElevatedButton(onPressed: (){
+                        var no1 = int.parse(no1Controller.text.toString());
+                        var no2 = int.parse(no2Controller.text.toString());
+                        var sum = no1 - no2;
+                        result = "The sub of $no1 and $no2 is: $sum";
+                        setState(() {});
+                      }, child: Text('Sub')),
+                      ElevatedButton(onPressed: (){
+                        var no1 = int.parse(no1Controller.text.toString());
+                        var no2 = int.parse(no2Controller.text.toString());
+                        var mult = no1 * no2;
+                        result = "The Multiplication of $no1 and $no2 is: $mult";
+                        setState(() {});
+                      }, child: Text('Mul')),
+                      ElevatedButton(onPressed: (){
+                        var no1 = int.parse(no1Controller.text.toString());
+                        var no2 = int.parse(no2Controller.text.toString());
+                        var div = no1 / no2;
+                        result = "The Division of $no1 and $no2 is: ${div.toStringAsFixed(2)}";
+                        setState(() {});
+                      }, child: Text('Div')),
+                    ],
+                  ),
+                ),
+                Padding(padding: EdgeInsets.all(20),
+                  child: Text(result, style: TextStyle(fontSize: 25),),)
+              ],
+            ),
+          ),
         ),
       )
     );
@@ -153,7 +141,7 @@ class CatItems extends StatelessWidget{
       ),
     );
   }
-  
+
 }
 
 class Contact extends StatelessWidget{
